@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Students;
 use Illuminate\Http\Request;
 
+
 class StudentsController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $data['students']=Students::paginate(5);
+        $data['students']=Students::paginate(10);
         return view('students.index',$data);
     }
 
@@ -38,9 +39,10 @@ class StudentsController extends Controller
     {
         //
 
-        $dataStudent=request()->except('_token');
 
+        $dataStudent=request()->except('_token');
         Students::insert($dataStudent);
+        
         return redirect('students')->with('Message','Empleado Agregado con Exito');
     }
 

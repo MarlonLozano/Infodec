@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->double('nota1',2,1);
             $table->double('nota2',2,1);
             $table->double('nota3',2,1);
-            $table->double('notaFinal')->default(0);
+            $table->double('notaFinal');
             $table->timestamps();
         });
     }
